@@ -1,0 +1,365 @@
+/* ========== BASE BODY STYLE ========== */
+body {
+  margin: 0;
+  padding: 0;
+  background: radial-gradient(circle, #ff6464 0%, #701e1e 80%);
+  overflow-x: hidden;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-style: italic;
+  opacity: 1;
+  transition: opacity 0.8s ease-in;
+}
+
+body.fade-out {
+  opacity: 0;
+  transition: opacity 0.8s ease-out;
+}
+
+body.slide-out {
+  animation: slide-out 0.5s ease-in forwards;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh; /* Full height */
+  text-align: center;
+  position: relative;
+  padding-bottom: 50px;
+}  
+
+/* ========== SECTION STYLES ========== */
+section {
+  width: 100vw;
+  height: 100vh;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 2rem;
+  text-align: center;
+  position: relative;
+}
+
+section.active {
+  display: flex;
+}
+
+/* ========== HOME SECTION ========== */
+.birthday-text {
+  text-align: center;
+  font-size: 3rem;
+  color: white;
+  margin-top: 50px;
+  line-height: 1.2;
+  animation: pop 2s ease forwards;
+}
+
+.age {
+  font-size: 1.5rem;
+  color: #ffd700; /* emas gemas */
+  font-style: italic;
+}
+
+h1 {
+  text-align: center;
+  font-size: 50px;
+  color: white;
+  margin-top: 10px; /* jadi lebih dekat dengan atasnya */
+  margin-bottom: 30px;
+  animation: pop 2s ease forwards;
+}
+
+.cake {
+  margin-top: -90px;
+  width: 600px;
+  animation: pop 2s ease forwards;
+}
+
+.balloons {
+  position: absolute;
+  top: 10%;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 30px;
+}
+
+.balloon {
+  width: 600px;
+  animation: pop 2s ease forwards;
+}
+
+.present {
+  width: 600px;
+  animation: pop 2s ease forwards;
+}
+
+.next-btn {
+  position: absolute;
+  bottom: 50px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: transparent;
+  border: none;
+  font-size: 2.5rem;
+  cursor: pointer;
+  color: #ef7878;
+  transition: transform 0.3s;
+  margin-top: -350px;
+}
+
+.next-btn:hover {
+  transform: translateX(-50%) scale(1.2);
+}
+
+/* ========== NEXT SECTION ========== */
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  height: 100vh;
+  padding: 0 1rem;
+  box-sizing: border-box;
+}
+
+.envelope-img {
+  width: 400px;
+  margin: 20px 0;
+  margin-top: -30px;
+  animation: float 2s ease-in-out infinite;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  gap: 300px;
+  margin-top: -40px;
+}
+
+.button-container button {
+  padding: 12px 24px;
+  border: none;
+  border-radius: 30px;
+  font-size: 2rem;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+#yes-btn {
+  background-color: #f27171;
+  color: white;
+  cursor: pointer;
+}
+
+#yes-btn:hover {
+  background-color: #f27171;
+}
+
+#no-btn {
+  background-color: #f27171;
+  color: white;
+  opacity: 0.9;
+  cursor: pointer;
+  position: relative; /* penting biar bisa digeser */
+  transition: transform 0.3s ease;
+  z-index: 10;
+}
+
+#no-btn:hover {
+  animation: shake 0.5s;
+}
+
+/* ========== SURAT SECTION ========== */
+.surat-box {
+  background-color: white;
+  border-radius: 30px;
+  padding: 20px;
+  max-width: 600px;
+  margin: 50px auto;
+  box-shadow: 0 0 25px rgba(255, 255, 255, 0.7);
+  transition: all 0.3s ease;
+  z-index: 2;
+  position: relative;
+  animation: boxPop 3s ease-out;
+  text-align: left;
+}
+
+.surat-box h3 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #a73737;
+}
+
+.surat-box p {
+  line-height: 1.5;
+  font-size: 14px;
+  margin-bottom: 15px;
+}
+
+.highlight {
+  color: #a32a44;
+  font-weight: bold;
+}
+
+.orange {
+  color: #650e2d;
+  font-weight: bold;
+}
+
+.bold {
+  font-weight: bold;
+  color: #650e2d;
+}
+
+
+/* ========== ANIMATIONS ========== */
+@keyframes pop {
+  0% {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes boxPop {
+  0% {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.confetti {
+  position: absolute;
+  top: -10px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  animation: fall linear infinite;
+}
+
+@keyframes fall {
+  to {
+    transform: translateY(110vh);
+  }
+}
+
+@keyframes sparkle-fall {
+  0% {
+    transform: translateY(0) scale(0.8) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh) scale(1.2) rotate(360deg);
+    opacity: 0;
+  }
+}  
+
+
+@keyframes float {
+  0% { transform: translate(0); }
+  50% { transform: translateY(-8px); }
+  100% { transform: translateY(0); }
+}
+
+@keyframes shake {
+  0% { transform: translateX(0); }
+  25% { transform: translateX(-3px); }
+  50% { transform: translateX(3px); }
+  75% { transform: translateX(-3px); }
+  100% { transform: translateX(0); }
+}
+
+@keyframes slide-in {
+  from {
+    opacity: 0;
+    transform: translateX(100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slide-out {
+  from {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(-100px);
+  }
+}
+
+/* ========== SPARKLE ========== */
+.sparkle-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.sparkle {
+  position: fixed;
+  top: -20px;
+  font-size: 1.5rem;
+  pointer-events: none;
+  z-index: 9999;
+  animation: sparkleFall 2s linear forwards;
+  color: #fff5cc;
+  filter: drop-shadow(0 0 5px #ffc5ec);
+}
+
+@keyframes sparkleFall {
+  to {
+    transform: translateY(100vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  h1 {
+    font-size: 30px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+  }
+
+  .birthday-text {
+    font-size: 2rem;
+    margin-top: 10px;
+  }
+
+  .icons-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px; /* spasi antar ikon */
+    margin-top: 20px;
+  }
+
+  .icons-container img {
+    width: 80px;
+    height: auto;
+  }
+
+  .arrow {
+    margin-top: 30px;
+  }
+}
+

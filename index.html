@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Birthday Kevin✨</title>
+  <link rel="stylesheet" href="styles.css">
+
+</head>
+<body>
+  <!-- Section 1: Index -->
+  <section id="home" class="active">
+    <div class="confetti-container"></div>
+    <h1 class="birthday-text">HAPPY <span class="age">20th</span><br>BIRTHDAY</h1>
+    <img src="cake.png" alt="cake" class="cake">
+
+    <div class="balloons">
+      <img src="balloons-right.png" class="balloon left" alt="Left balloon">
+      <img src="present.png" class="present right" alt="Right present">
+    </div>
+
+    <button class="next-btn" onclick="goTo('next')">➜</button>
+  </section>
+
+  <!-- Section 2: Next -->
+  <section id="next">
+    <h1>Do you want to open the letter?</h1>
+    <img src="envelope-k.png" alt="Envelope" class="envelope-img">
+    <div class="button-container">
+      <button id="yes-btn">Yes!</button>
+      <button id="no-btn">No :(</button>
+    </div>
+  </section>
+
+  <!-- Section 3: Surat -->
+  <section id="surat">
+    <div class="sparkle-container"></div>
+    <div class="surat-box">
+      <h3>Surat Ulang Tahun</h3>
+      <p>Hai kamu, iya kamu<br>
+      <span class="highlight">Selamat ulang tahun ke 20 ya, Kevin✨</span></p>
+
+      <p>Jujur, dulu aku pernah mikir... kok bisa ya, kita yang awalnya cuma dua orang asing, ya... ga asing juga si, lebih tepatnya kenalan semasa SMP yang jadi kenal karena...ya you know lah~ dan sekarang jadi teman dekat karena kejadian unexpected juga :). Tapi bukan berarti aku gasuka kenal kamu, oh no no~ aku seneng bisa kenal seseorang seperti kamu.</p>
+
+      <p><span class="orange">Kamu itu...</span><br>
+      Orangnya kocak, suka nge-rasis, hobinya nge-sarkas, kadang absurd, kadang perhatian, kadang juga nyebelin _- , sempet jadi protektif juga si... tapi kadang juga bisa dewasa banget. Lucu dan tulusnya kamu tu bikin aku ngerasa nyaman dan diterima apa adanya. Aku bahkan engga menyangka kalau kita bisa satu frekuensi, ibarat kakak-adik, we are twinflames. Kita sama-sama konyol, dan itu bikin hubungan kita selalu terasa ringan, hangat, tapi bermakna. Aku bisa jadi diriku sendiri, aku bisa merasa aman, nyaman, diterima, di apresiasi, dan di perhatikan kalau lagi bareng kamu. Dan percaya deh, sejak kamu masih ada dalam hidupku, aku tahu dunia ini bakal baik-baik aja.</p>
+
+      <p>Di ulang tahunmu ini, aku cuma mau bilang satu hal:<br>
+      <span class="bold">Terima kasih.</span></p>
+
+      <p>Terima kasih udah jadi dirimu yang apa adanya. Terima kasih udah hadir di hidupku, walau karena kejadian unexpected pun udah cukup untuk bikin aku ngerasa dihargai dan disayangi. Tapi entah aja, aku berharap bentuk persahabatan ini bisa lama, entah sampai kapan... karena jujur aku merasa bersyukur banget bisa kenal seseorang yang seperti kamu, seolah aku jadi bisa melihat sebagian sisi diriku ada di dirimu dalam bentuk gender yang berbeda.</p>
+
+      <p>Semoga ulang tahunmu penuh cinta, tawa, dan harapan yang jadi nyata. Kamu pantas bahagia, selalu. Karena sahabat sebaik kamu itu langka, dan aku bersyukur banget jadi salah satu orang yang bisa nyebut kamu <span class="bold">“sahabatku.”</span></p>
+
+      <p>With all my warm hugs<br>
+      Cah Kangkung🕊️</p>
+    </div>
+  </section>
+
+  <!-- JavaScript for Navigation -->
+  <script src="confetti.js"></script>
+  <script>
+    function slideToNext() {
+      document.body.classList.add('slide-out');
+      setTimeout(() => {
+        window.location.href = 'next.html';
+      }, 700); // waktu tunggu biar animasi selesai
+    }
+  </script> 
+
+  <script>
+    function goTo(sectionId) {
+      document.querySelectorAll('section').forEach(sec => sec.classList.remove('active'));
+      document.getElementById(sectionId).classList.add('active');
+    }
+
+    // Sparkle effect
+    const sparkleContainer = document.querySelector('.sparkle-container');
+    const emojis = ['🌹', '🎈', '✨'];
+  
+    function createSparkle() {
+      const sparkle = document.createElement('div');
+      sparkle.classList.add('sparkle');
+      sparkle.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+      sparkle.style.left = Math.random() * 100 + 'vw';
+      sparkle.style.fontSize = (16 + Math.random() * 20) + 'px';
+      sparkleContainer.appendChild(sparkle);
+  
+      setTimeout(() => sparkle.remove(), 5000);
+    }
+  
+    setInterval(createSparkle, 400);
+  </script>
+</body>
+</html>
